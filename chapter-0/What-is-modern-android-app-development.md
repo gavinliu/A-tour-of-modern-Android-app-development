@@ -1,4 +1,4 @@
-#什么是现代 Android App 开发？
+# 什么是现代 Android App 开发？
 
 Android 开发真的是个很广泛的范围，包括不限于：`内核`，`驱动`，`相机 HAL`、`多媒体`、`通讯` 等，这里我们只讨论 App 开发。
 
@@ -11,6 +11,8 @@ Android 从 2008 发布到现在已经 10 个年头了，现在的开发方式�
 2.  日渐繁荣的开源社区生态
 
     > 比如 OkHttp 系列，Rxjava，EventBus 等
+
+现代 Android App 开发，就是摒弃陈旧杂乱的开发模式，借助最新的 `Jetpack` 体系，构建高质量应用程序的最佳实践和体系结构。
 
 ## 一、时间线
 
@@ -90,7 +92,9 @@ Android App 开发比较重要的时间节点
 
 ### 网络
 
-只推荐 `OkHttp` ，毕竟 Android 系统的 URLConnection 都换成了 OKHttp 的实现
+只推荐 `OkHttp` ，毕竟 Android 系统的 URLConnection 都换成了 OKHttp 的实现。
+
+基于 `OkHttp` 开发的 `Retrofit`，是最佳选择。
 
 ### 图片缓存
 
@@ -104,4 +108,11 @@ Android App 开发比较重要的时间节点
 
 使用 `ArchComponents: Navigation`
 
-## 三、 推荐
+## 三、 推荐脚手架
+
+- Kotlin
+- Appcompat
+- Jetpack - Architecture Components
+- Rxjava
+- Retrofit
+- Glide
