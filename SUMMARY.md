@@ -1,8 +1,10 @@
-## 现代 Android 开发之旅
+## 现代 Android App 开发之旅
 
 - [封面](README.md)
 
-- [0. 如何写个高质量的 Android App？](chapter-0/How-to-write-hight-quality-android-app.md)
+- [0. 如何写个高质量的 Android App？](chapter-0/How-to-write-a-hight-quality-android-app.md)
+
+- [0. 什么是现代 Android App 开发？](chapter-0/What-is-modern-android-app-development.md)
 
 - [1. 架构组件 (Architecture Components)](chapter-1/README.md)
 
