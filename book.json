@@ -2,7 +2,7 @@
   "gitbook": ">=3.2.3",
   "language": "zh-hans",
   "plugins": [
-    "-search", "sharing", "fontsettings", "highlight", "livereload"
+    "-search", "sharing", "fontsettings", "highlight", "todo"
   ],
 
   "title": "现代 Android 开发之旅",
