@@ -41,7 +41,9 @@ Android App 开发比较重要的时间节点
 
 ### 架构模式
 
-这部分设计原则在 [上一篇](How-to-write-a-hight-quality-android-app.md) 讲得很清楚了，具体架构模式应该根据情况选你喜欢的方式，架构没有绝对的好与坏。
+这部分会在下一章 [如何写个高质量的 Android App？](How-to-write-a-hight-quality-android-app.md) 详细介绍如何写一个靠谱的 Android App。
+
+当然你也可以直接看代码，具体架构模式应该根据情况选你喜欢的方式，架构没有绝对的好与坏。
 
 参考：[android-architecture](https://github.com/googlesamples/android-architecture)
 
