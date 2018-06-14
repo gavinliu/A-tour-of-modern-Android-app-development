@@ -236,7 +236,7 @@ FullLifecycleObserverAdapter -> FullLifecycleObserver
 
 看源码当然不是拿到源码直接就看，对于这个组件，我们这里需要弄明白这几个问题就行了：
 
-1.  Lifecycle 内部有 Event 和 State 两个类，它们是什么关系？
+#### 1. Lifecycle 内部有 Event 和 State 两个类，它们是什么关系？
 
     Event：表示的是生命周期的事件
 
@@ -300,7 +300,7 @@ FullLifecycleObserverAdapter -> FullLifecycleObserver
     }
     ```
 
-2.  注册 LifecycleObserver 后，LifecycleObserver 对象是怎么存储的，存了些什么东西？
+#### 2. 注册 LifecycleObserver 后，LifecycleObserver 对象是怎么存储的，存了些什么东西？
 
     ```java
     // LifecycleRegistry.java
@@ -350,7 +350,7 @@ FullLifecycleObserverAdapter -> FullLifecycleObserver
     }
     ```
 
-3.  生命周期是如何通知到 LifecycleObserver？
+#### 3. 生命周期是如何通知到 LifecycleObserver？
 
     ```java
     // Fragment.java
@@ -369,7 +369,7 @@ FullLifecycleObserverAdapter -> FullLifecycleObserver
             throw new SuperNotCalledException("Fragment " + this
                     + " did not call through to super.onCreate()");
         }
-        // 分发 ON_CREATE 事件
+        // 1 分发 ON_CREATE 事件
         mLifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_CREATE);
     }
     ```
@@ -378,10 +378,11 @@ FullLifecycleObserverAdapter -> FullLifecycleObserver
     // LifecycleRegistry.java
 
     public void handleLifecycleEvent(@NonNull Lifecycle.Event event) {
-        // 当前事件发生后的状态
-        State next = getStateAfter(event);
+        State next = getStateAfter(event); // 当前事件发生后的状态
         moveToState(next);
     }
+
+    // 2 设置状态
     private void moveToState(State next) {
         if (mState == next) {
             return;
@@ -396,7 +397,7 @@ FullLifecycleObserverAdapter -> FullLifecycleObserver
         sync();
         mHandlingEvent = false;
     }
-    // 同步状态
+    // 3 同步状态
     private void sync() {
         LifecycleOwner lifecycleOwner = mLifecycleOwner.get();
         if (lifecycleOwner == null) {
@@ -420,7 +421,7 @@ FullLifecycleObserverAdapter -> FullLifecycleObserver
         }
         mNewEventOccurred = false;
     }
-    // 状态向后传递
+    // 4 状态向后传递
     private void backwardPass(LifecycleOwner lifecycleOwner) {
         Iterator<Entry<LifecycleObserver, ObserverWithState>> descendingIterator =
                 mObserverMap.descendingIterator();
@@ -432,7 +433,7 @@ FullLifecycleObserverAdapter -> FullLifecycleObserver
                 // 到达这个状态，应该是由什么事件触发？
                 Event event = downEvent(observer.mState);
                 pushParentState(getStateAfter(event));
-                // 那么就分发这个事件
+                // 5 那么就分发这个事件
                 observer.dispatchEvent(lifecycleOwner, event);
                 popParentState();
             }
