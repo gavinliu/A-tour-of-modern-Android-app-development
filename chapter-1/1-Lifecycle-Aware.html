@@ -1,0 +1,739 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.1 Lifecycle-Aware · 现代 Android 开发之旅</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="GavinLiu">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fancybox/jquery.fancybox.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fancybox/jquery.fancybox-buttons.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="2-LiveData.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">现代 Android App 开发之旅</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    封面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../chapter-0/What-is-modern-android-app-development.html">
+            
+                <a href="../chapter-0/What-is-modern-android-app-development.html">
+            
+                    
+                    0. 什么是现代 Android App 开发？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../chapter-0/How-to-write-a-hight-quality-android-app.html">
+            
+                <a href="../chapter-0/How-to-write-a-hight-quality-android-app.html">
+            
+                    
+                    0. 如何写个高质量的 Android App？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    1. 架构组件 (Architecture Components)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.4.1" data-path="1-Lifecycle-Aware.html">
+            
+                <a href="1-Lifecycle-Aware.html">
+            
+                    
+                    1.1 Lifecycle-Aware
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="2-LiveData.html">
+            
+                <a href="2-LiveData.html">
+            
+                    
+                    1.2 LiveData
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="3-ViewModel.html">
+            
+                <a href="3-ViewModel.html">
+            
+                    
+                    1.3 ViewModel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="4-Room.html">
+            
+                <a href="4-Room.html">
+            
+                    
+                    1.4 Room
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="5-Paging.html">
+            
+                <a href="5-Paging.html">
+            
+                    
+                    1.5 Paging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="6-Navigation.html">
+            
+                <a href="6-Navigation.html">
+            
+                    
+                    1.6 Navigation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="7-WorkManager.html">
+            
+                <a href="7-WorkManager.html">
+            
+                    
+                    1.7 WorkManager
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="8-Data-Binding.html">
+            
+                <a href="8-Data-Binding.html">
+            
+                    
+                    1.8 Data Binding
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../chapter-2/">
+            
+                <a href="../chapter-2/">
+            
+                    
+                    2. 基于架构组件开发 电影榜单 App
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    3. RxJava
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    4. Retrofit
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.1 Lifecycle-Aware</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x751F;&#x547D;&#x5468;&#x671F;&#x611F;&#x77E5;&#x7EC4;&#x4EF6;-lifecycle-aware-components">&#x751F;&#x547D;&#x5468;&#x671F;&#x611F;&#x77E5;&#x7EC4;&#x4EF6; (Lifecycle-Aware Components)</h1>
+<h2 id="&#x4EC0;&#x4E48;&#x662F;-lifecycle-aware-&#x7EC4;&#x4EF6;">&#x4EC0;&#x4E48;&#x662F; Lifecycle-Aware &#x7EC4;&#x4EF6;</h2>
+<p>&#x751F;&#x547D;&#x5468;&#x671F;&#x611F;&#x77E5;&#x7EC4;&#x4EF6;&#x662F;&#x4E00;&#x5957;&#x53EF;&#x4EE5;&#x611F;&#x77E5; <code>Activity</code> &#x548C; <code>Fragment</code> &#x751F;&#x547D;&#x5468;&#x671F;&#x7684;&#x6846;&#x67B6;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x5F88;&#x5C11;&#x7684;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#x751F;&#x547D;&#x5468;&#x671F;&#x76D1;&#x542C;&#x3002;</p>
+<h2 id="&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981;-lifecycle-aware-&#x7EC4;&#x4EF6;">&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981; Lifecycle-Aware &#x7EC4;&#x4EF6;</h2>
+<p>&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;&#x5355;&#x4E00;&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#xFF0C;&#x628A;&#x539F;&#x672C;&#x5728; <code>Activity</code> &#x548C; <code>Fragment</code> &#x4E2D;&#x7684;&#x4E1A;&#x52A1;&#x4EE3;&#x7801;&#x5206;&#x79BB;&#x51FA;&#x6765;&#xFF0C;&#x4F46;&#x662F;&#x4E1A;&#x52A1;&#x4EE3;&#x7801;&#x9700;&#x8981;&#x77E5;&#x9053; UI &#x7684;&#x72B6;&#x6001;&#xFF0C;&#x6BD4;&#x5982;&#x9700;&#x8981;&#x5728;&#x9875;&#x9762;&#x9000;&#x51FA;&#x7684;&#x65F6;&#x5019; &#x505C;&#x6B62;&#x7F51;&#x7EDC;&#x6570;&#x636E;&#x8FDE;&#x63A5;&#x7B49;&#xFF0C;&#x6240;&#x4EE5;&#x8BBE;&#x8BA1;&#x4E86;&#x8FD9;&#x4E48;&#x4E2A;&#x7EC4;&#x4EF6;&#x3002;</p>
+<p>&#x6709;&#x4E86;&#x8FD9;&#x4E2A;&#x7EC4;&#x4EF6;&#xFF0C;&#x73B0;&#x5728;&#x5728;&#x5B9E;&#x73B0; MVP &#x67B6;&#x6784;&#x4E2D;&#xFF0C;Presenter &#x60F3;&#x8981;&#x77E5;&#x9053; UI &#x754C;&#x9762;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF0C;&#x5C31; <strong>&#x4E0D;&#x9700;&#x8981;</strong> &#x81EA;&#x5DF1;&#x58F0;&#x660E;&#x4E00;&#x7CFB;&#x5217;&#x65B9;&#x6CD5;&#xFF0C;&#x5728; UI &#x4E2D;&#x624B;&#x52A8;&#x56DE;&#x8C03;&#x3002;</p>
+<h2 id="&#x600E;&#x4E48;&#x4F7F;&#x7528;-lifecycle-aware-&#x7EC4;&#x4EF6;">&#x600E;&#x4E48;&#x4F7F;&#x7528; Lifecycle-Aware &#x7EC4;&#x4EF6;</h2>
+<h3 id="&#x57FA;&#x672C;&#x6982;&#x5FF5;">&#x57FA;&#x672C;&#x6982;&#x5FF5;</h3>
+<p>&#x751F;&#x547D;&#x5468;&#x671F;&#x611F;&#x77E5;&#x7EC4;&#x4EF6;&#x6709;&#x4E09;&#x4E2A;&#x6982;&#x5FF5;&#xFF1A;</p>
+<ol>
+<li><p>Lifecycle &#xFF1A;&#x8868;&#x793A;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x662F;&#x4E2A;&#x88AB;&#x89C2;&#x5BDF;&#x8005;&#xFF1B;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Lifecycle</span> </span>{
+  <span class="hljs-meta">@MainThread</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addObserver</span><span class="hljs-params">(@NonNull LifecycleObserver observer)</span></span>;
+
+  <span class="hljs-meta">@MainThread</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">removeObserver</span><span class="hljs-params">(@NonNull LifecycleObserver observer)</span></span>;
+
+  <span class="hljs-meta">@MainThread</span>
+  <span class="hljs-meta">@NonNull</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> State <span class="hljs-title">getCurrentState</span><span class="hljs-params">()</span></span>;
+}
+</code></pre>
+</li>
+<li><p>LifecycleOwner &#xFF1A;&#x8868;&#x793A;&#x751F;&#x547D;&#x5468;&#x671F;&#x62E5;&#x6709;&#x8005;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x5BF9;&#x5916;&#x66B4;&#x9732; <code>getLifecycle()</code> &#x65B9;&#x6CD5;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">LifecycleOwner</span> </span>{
+  <span class="hljs-meta">@NonNull</span>
+  <span class="hljs-function">Lifecycle <span class="hljs-title">getLifecycle</span><span class="hljs-params">()</span></span>;
+}
+</code></pre>
+</li>
+<li><p>LifecycleObserver &#xFF1A;&#x8868;&#x793A;&#x751F;&#x547D;&#x5468;&#x671F;&#x89C2;&#x5BDF;&#x8005;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x7528;&#x6765;&#x89C2;&#x5BDF; Lifecycle&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">FullLifecycleObserver</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">LifecycleObserver</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(LifecycleOwner owner)</span></span>;
+
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onStart</span><span class="hljs-params">(LifecycleOwner owner)</span></span>;
+
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onResume</span><span class="hljs-params">(LifecycleOwner owner)</span></span>;
+
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onPause</span><span class="hljs-params">(LifecycleOwner owner)</span></span>;
+
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onStop</span><span class="hljs-params">(LifecycleOwner owner)</span></span>;
+
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onDestroy</span><span class="hljs-params">(LifecycleOwner owner)</span></span>;
+}
+</code></pre>
+</li>
+</ol>
+<p>&#x90A3;&#x4E48; LifecycleOwner &#x5176;&#x5B9E;&#x5C31;&#x662F; <code>Activity</code> &#x6216;&#x8005; <code>Fragment</code>&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728; <code>Activity</code> &#x6216;&#x8005; <code>Fragment</code> &#x4E2D;&#x4F7F;&#x7528; <code>getLifecycle()</code> &#x83B7;&#x53D6; Lifecycle&#xFF0C;&#x7136;&#x540E; <code>Lifecycle.addObserver(MyLifecycleObserver())</code>&#xFF0C;&#x5373;&#x53EF;&#x611F;&#x77E5;&#x5230;&#x751F;&#x547D;&#x5468;&#x671F;&#x3002;</p>
+<h3 id="&#x5BFC;&#x5165;&#x5E93;">&#x5BFC;&#x5165;&#x5E93;</h3>
+<p>&#x4ECE; <code>Support Library 26.1</code> &#x5F00;&#x59CB;&#x4F9D;&#x8D56; <code>Lifecycle-Aware</code> &#x7EC4;&#x4EF6;&#xFF0C;&#x6240;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528; 26.1 &#x7248;&#x672C;&#x4EE5;&#x4E0A;&#x7684; <code>Support Library</code> &#x5373;&#x53EF;&#x3002;</p>
+<p>&#x4E0D;&#x5EFA;&#x8BAE;&#x5728; 26.1 &#x7248;&#x672C;&#x4EE5;&#x4E0B;&#xFF0C;&#x5F15;&#x7528; <code>Lifecycle-Aware</code> &#x7EC4;&#x4EF6;&#xFF0C;&#x8FD9;&#x6837;&#x4F60;&#x9700;&#x8981;&#x5355;&#x72EC;&#x5BF9; <code>Activity</code> &#x6216;&#x8005; <code>Fragment</code> &#x505A;&#x751F;&#x547D;&#x5468;&#x671F;&#x611F;&#x77E5;&#x9002;&#x914D;&#x3002;</p>
+<h3 id="&#x5B9E;&#x73B0;-lifecycleobserver">&#x5B9E;&#x73B0; LifecycleObserver</h3>
+<p>&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;:</p>
+<ol>
+<li><p>&#x4F7F;&#x7528; <code>OnLifecycleEvent</code> &#x6CE8;&#x89E3;</p>
+<pre><code class="lang-kotlin"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyLifecycleObserver</span> : <span class="hljs-type">LifecycleObserver {</span></span>
+
+    <span class="hljs-meta">@OnLifecycleEvent(Lifecycle.Event.ON_CREATE)</span>
+    <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreate</span><span class="hljs-params">()</span></span> {
+        Log.d(<span class="hljs-string">&quot;MyLifecycleObserver&quot;</span>, <span class="hljs-string">&quot;onCreate&quot;</span>)
+    }
+
+    <span class="hljs-meta">@OnLifecycleEvent(Lifecycle.Event.ON_START)</span>
+    <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onStart</span><span class="hljs-params">()</span></span> {
+        Log.d(<span class="hljs-string">&quot;MyLifecycleObserver&quot;</span>, <span class="hljs-string">&quot;onStart&quot;</span>)
+    }
+
+    <span class="hljs-meta">@OnLifecycleEvent(Lifecycle.Event.ON_RESUME)</span>
+    <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onResume</span><span class="hljs-params">()</span></span> {
+        Log.d(<span class="hljs-string">&quot;MyLifecycleObserver&quot;</span>, <span class="hljs-string">&quot;onResume&quot;</span>)
+    }
+
+    <span class="hljs-meta">@OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)</span>
+    <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onPause</span><span class="hljs-params">()</span></span> {
+        Log.d(<span class="hljs-string">&quot;MyLifecycleObserver&quot;</span>, <span class="hljs-string">&quot;onPause&quot;</span>)
+    }
+
+    <span class="hljs-meta">@OnLifecycleEvent(Lifecycle.Event.ON_STOP)</span>
+    <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onStop</span><span class="hljs-params">()</span></span> {
+        Log.d(<span class="hljs-string">&quot;MyLifecycleObserver&quot;</span>, <span class="hljs-string">&quot;onStop&quot;</span>)
+    }
+
+    <span class="hljs-meta">@OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)</span>
+    <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onDestroy</span><span class="hljs-params">()</span></span> {
+        Log.d(<span class="hljs-string">&quot;MyLifecycleObserver&quot;</span>, <span class="hljs-string">&quot;onDestroy&quot;</span>)
+    }
+}
+</code></pre>
+</li>
+<li><p>&#x5B9E;&#x73B0; <code>GenericLifecycleObserver</code> &#x63A5;&#x53E3;</p>
+<pre><code class="lang-kotlin"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyGenericLifecycleObserver</span> : <span class="hljs-type">GenericLifecycleObserver {</span></span>
+    <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onStateChanged</span><span class="hljs-params">(source: <span class="hljs-type">LifecycleOwner</span>?, event: <span class="hljs-type">Lifecycle</span>.<span class="hljs-type">Event</span>?)</span></span> {
+        Log.d(<span class="hljs-string">&quot;onStateChanged&quot;</span>, event?.name)
+    }
+}
+</code></pre>
+</li>
+</ol>
+<h3 id="&#x6CE8;&#x518C;-lifecycleobserver">&#x6CE8;&#x518C; LifecycleObserver</h3>
+<pre><code class="lang-kotlin">lifecycle.addObserver(MyLifecycleObserver())
+lifecycle.addObserver(MyGenericLifecycleObserver())
+</code></pre>
+<h3 id="&#x8FD0;&#x884C;&#x6548;&#x679C;">&#x8FD0;&#x884C;&#x6548;&#x679C;</h3>
+<pre><code class="lang-console">D/MyLifecycleObserver: onCreate
+D/onStateChanged: ON_CREATE
+D/MyLifecycleObserver: onStart
+D/onStateChanged: ON_START
+D/MyLifecycleObserver: onResume
+D/onStateChanged: ON_RESUME
+D/onStateChanged: ON_PAUSE
+D/MyLifecycleObserver: onPause
+D/onStateChanged: ON_STOP
+D/MyLifecycleObserver: onStop
+D/onStateChanged: ON_DESTROY
+D/MyLifecycleObserver: onDestroy
+</code></pre>
+<h2 id="lifecycle-aware-&#x7EC4;&#x4EF6;&#x5B9E;&#x73B0;&#x539F;&#x7406;">Lifecycle-Aware &#x7EC4;&#x4EF6;&#x5B9E;&#x73B0;&#x539F;&#x7406;</h2>
+<h3 id="&#x7C7B;&#x56FE;">&#x7C7B;&#x56FE;</h3>
+<p>     <a href="http://www.plantuml.com/plantuml/svg/UDgDLDkEsZ0GVVTN-144wGyKhHH1g91OG0chQljIcMI0I4aSsGuLslRVEx5peR73ziMUp8ndpXmVXx2JL8B5YiOPav9kqpF4zpW3-a5cDvucb2N9_YH1t41CkcZheRmnfassW9pVuFyEH8efe1TGoqe8A9J-dap97qAWg78QtD29EFQxdyimy8z1RKL7FppMHXX4Rw_QTV3VeYQsFzJxAeYEuVwzDltTUrVFzFiWJJXOaSrkSzpusyqFj4sB5T4DS3VrLuISEC-05JILlje2asfY2ibwrMZJGe4uinXw-lQ_2XmMEUm9nK6x3pEbeNmjs2KtatfTGWYN52_cJdFBHOYdgIwn9nVvKe2XxHylGXHgw0n1LhcLUc2LT9pdvT2t0cpFxu_ORRmun1evYjWPDiWAEsNmoig59OGvRQtlgRfgHbzetlhm226pAokI3BgZMW-zfBuOVK2zFa2oojQGZ97hZNZV02ydZMrnvfQh9Jj9PSbKV1rWCDVCwtLEXtXSicZBzh5HCEq3v8M6lKGsBf0CUqjUYHZcr4tBLyJHjrfNMVQiJoCbrtJJHp12VPBJ2Ervaj7TPyrGXizJMbMwi_fNvfhTJrYfD0MUcvjEa7KXExpuxNdkocF9OxTD1l1DvURFq0UDt_ubsEzmuJu_GxSMoC1dNeQZJXsqdXIn7vddlOmFDwhnSGARgo5Fxmrxkjd_2qBSS6S0" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="http://www.plantuml.com/plantuml/svg/UDgDLDkEsZ0GVVTN-144wGyKhHH1g91OG0chQljIcMI0I4aSsGuLslRVEx5peR73ziMUp8ndpXmVXx2JL8B5YiOPav9kqpF4zpW3-a5cDvucb2N9_YH1t41CkcZheRmnfassW9pVuFyEH8efe1TGoqe8A9J-dap97qAWg78QtD29EFQxdyimy8z1RKL7FppMHXX4Rw_QTV3VeYQsFzJxAeYEuVwzDltTUrVFzFiWJJXOaSrkSzpusyqFj4sB5T4DS3VrLuISEC-05JILlje2asfY2ibwrMZJGe4uinXw-lQ_2XmMEUm9nK6x3pEbeNmjs2KtatfTGWYN52_cJdFBHOYdgIwn9nVvKe2XxHylGXHgw0n1LhcLUc2LT9pdvT2t0cpFxu_ORRmun1evYjWPDiWAEsNmoig59OGvRQtlgRfgHbzetlhm226pAokI3BgZMW-zfBuOVK2zFa2oojQGZ97hZNZV02ydZMrnvfQh9Jj9PSbKV1rWCDVCwtLEXtXSicZBzh5HCEq3v8M6lKGsBf0CUqjUYHZcr4tBLyJHjrfNMVQiJoCbrtJJHp12VPBJ2Ervaj7TPyrGXizJMbMwi_fNvfhTJrYfD0MUcvjEa7KXExpuxNdkocF9OxTD1l1DvURFq0UDt_ubsEzmuJu_GxSMoC1dNeQZJXsqdXIn7vddlOmFDwhnSGARgo5Fxmrxkjd_2qBSS6S0" alt="">
+     </a></p>
+<h3 id="&#x6E90;&#x7801;&#x89E3;&#x6790;">&#x6E90;&#x7801;&#x89E3;&#x6790;</h3>
+<p>&#x770B;&#x6E90;&#x7801;&#x5F53;&#x7136;&#x4E0D;&#x662F;&#x62FF;&#x5230;&#x6E90;&#x7801;&#x76F4;&#x63A5;&#x5C31;&#x770B;&#xFF0C;&#x5BF9;&#x4E8E;&#x8FD9;&#x4E2A;&#x7EC4;&#x4EF6;&#xFF0C;&#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x5F04;&#x660E;&#x767D;&#x8FD9;&#x51E0;&#x4E2A;&#x95EE;&#x9898;&#x5C31;&#x884C;&#x4E86;&#xFF1A;</p>
+<h4 id="1-lifecycle-&#x5185;&#x90E8;&#x6709;-event-&#x548C;-state-&#x4E24;&#x4E2A;&#x7C7B;&#xFF0C;&#x5B83;&#x4EEC;&#x662F;&#x4EC0;&#x4E48;&#x5173;&#x7CFB;&#xFF1F;">1. Lifecycle &#x5185;&#x90E8;&#x6709; Event &#x548C; State &#x4E24;&#x4E2A;&#x7C7B;&#xFF0C;&#x5B83;&#x4EEC;&#x662F;&#x4EC0;&#x4E48;&#x5173;&#x7CFB;&#xFF1F;</h4>
+<pre><code>Event&#xFF1A;&#x8868;&#x793A;&#x7684;&#x662F;&#x751F;&#x547D;&#x5468;&#x671F;&#x7684;&#x4E8B;&#x4EF6;
+
+State&#xFF1A;&#x8868;&#x793A;&#x7684;&#x662F; Lifecycle &#x5F53;&#x524D;&#x7684;&#x72B6;&#x6001;
+
+![](../images/lifecycle-states.png)
+
+&#x4E0A;&#x56FE;&#x5C31;&#x662F; State &#x548C; Event &#x4E4B;&#x95F4;&#x7684;&#x8F6C;&#x6362;&#xFF0C;&#x8FC1;&#x79FB;&#x56FE;&#xFF0C;&#x5BF9;&#x4E8E;&#x7684;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;
+
+```java
+// LifecycleRegistry.java
+
+// &#x5F53;&#x524D;&#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x540E;&#x7684;&#x72B6;&#x6001;
+static State getStateAfter(Event event) {
+    switch (event) {
+        case ON_CREATE:
+        case ON_STOP:
+            return CREATED;
+        case ON_START:
+        case ON_PAUSE:
+            return STARTED;
+        case ON_RESUME:
+            return RESUMED;
+        case ON_DESTROY:
+            return DESTROYED;
+        case ON_ANY:
+            break;
+    }
+    throw new IllegalArgumentException(&quot;Unexpected event value &quot; + event);
+}
+// &#x72B6;&#x6001;&#x5411;&#x540E;&#x79FB;&#x52A8;&#xFF0C;&#x5230;&#x8FBE;&#x8FD9;&#x4E2A;&#x72B6;&#x6001;&#xFF0C;&#x5E94;&#x8BE5;&#x662F;&#x7531;&#x4EC0;&#x4E48;&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;
+private static Event downEvent(State state) {
+    switch (state) {
+        case INITIALIZED:
+            throw new IllegalArgumentException();
+        case CREATED:
+            return ON_DESTROY;
+        case STARTED:
+            return ON_STOP;
+        case RESUMED:
+            return ON_PAUSE;
+        case DESTROYED:
+            throw new IllegalArgumentException();
+    }
+    throw new IllegalArgumentException(&quot;Unexpected state value &quot; + state);
+}
+// &#x72B6;&#x6001;&#x5411;&#x524D;&#x79FB;&#x52A8;&#xFF0C;&#x5230;&#x8FBE;&#x8FD9;&#x4E2A;&#x72B6;&#x6001;&#xFF0C;&#x5E94;&#x8BE5;&#x662F;&#x7531;&#x4EC0;&#x4E48;&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;
+private static Event upEvent(State state) {
+    switch (state) {
+        case INITIALIZED:
+        case DESTROYED:
+            return ON_CREATE;
+        case CREATED:
+            return ON_START;
+        case STARTED:
+            return ON_RESUME;
+        case RESUMED:
+            throw new IllegalArgumentException();
+    }
+    throw new IllegalArgumentException(&quot;Unexpected state value &quot; + state);
+}
+```
+</code></pre><h4 id="2-&#x6CE8;&#x518C;-lifecycleobserver-&#x540E;&#xFF0C;lifecycleobserver-&#x5BF9;&#x8C61;&#x662F;&#x600E;&#x4E48;&#x5B58;&#x50A8;&#x7684;&#xFF0C;&#x5B58;&#x4E86;&#x4E9B;&#x4EC0;&#x4E48;&#x4E1C;&#x897F;&#xFF1F;">2. &#x6CE8;&#x518C; LifecycleObserver &#x540E;&#xFF0C;LifecycleObserver &#x5BF9;&#x8C61;&#x662F;&#x600E;&#x4E48;&#x5B58;&#x50A8;&#x7684;&#xFF0C;&#x5B58;&#x4E86;&#x4E9B;&#x4EC0;&#x4E48;&#x4E1C;&#x897F;&#xFF1F;</h4>
+<pre><code>```java
+// LifecycleRegistry.java
+
+private FastSafeIterableMap&lt;LifecycleObserver, ObserverWithState&gt; mObserverMap =
+        new FastSafeIterableMap&lt;&gt;();
+// LifecycleObserver &#x662F;&#x5B58;&#x5728; FastSafeIterableMap &#x91CC;&#x7684;&#xFF0C;&#x5185;&#x90E8;&#x662F;&#x7528; &#x94FE;&#x8868; &#x5B9E;&#x73B0;&#x7684; Map &#x6570;&#x636E;&#x7ED3;&#x6784;
+// &#x540C;&#x65F6;&#x5B58;&#x653E;&#x5728; ObserverWithState &#x91CC;&#x9762;
+public void addObserver(@NonNull LifecycleObserver observer) {
+    State initialState = mState == DESTROYED ? DESTROYED : INITIALIZED;
+    ObserverWithState statefulObserver = new ObserverWithState(observer, initialState);
+    // &#x5982;&#x679C;&#x5DF2;&#x7ECF;&#x6709;&#x4E86;&#x5C31;&#x8FD4;&#x56DE; map &#x91CC;&#x9762;&#x7684;&#x90A3;&#x4E2A;
+    ObserverWithState previous = mObserverMap.putIfAbsent(observer, statefulObserver);
+
+    // &#x5982;&#x679C;&#x5DF2;&#x7ECF; add &#x4E86;&#x5C31;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;
+    if (previous != null) {
+        return;
+    }
+
+    // &#x5982;&#x679C; LifecycleOwner &#x88AB;GC&#x56DE;&#x6536; &#x5C31;&#x8FD4;&#x56DE;
+    LifecycleOwner lifecycleOwner = mLifecycleOwner.get();
+    if (lifecycleOwner == null) {
+        // it is null we should be destroyed. Fallback quickly
+        return;
+    }
+
+    // &#x4E0B;&#x9762;&#x8FD9;&#x4E00;&#x6BB5;&#x662F;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#xFF0C;&#x5047;&#x5982;&#x4F60;&#x662F;&#x5728; onResume &#x7684;&#x65F6;&#x5019;&#x624D; add &#x7684; LifecycleObserver
+    // &#x540C;&#x6837;&#x4F1A;&#x6536;&#x5230; onResume &#x4E4B;&#x524D;&#x7684;&#x4E8B;&#x4EF6;
+    boolean isReentrance = mAddingObserverCounter != 0 || mHandlingEvent;
+    State targetState = calculateTargetState(observer);
+    mAddingObserverCounter++;
+    while ((statefulObserver.mState.compareTo(targetState) &lt; 0
+            &amp;&amp; mObserverMap.contains(observer))) {
+        pushParentState(statefulObserver.mState);
+        statefulObserver.dispatchEvent(lifecycleOwner, upEvent(statefulObserver.mState));
+        popParentState();
+        // mState / subling may have been changed recalculate
+        targetState = calculateTargetState(observer);
+    }
+
+    // &#x540C;&#x6B65;&#x5206;&#x53D1;
+    if (!isReentrance) {
+        // we do sync only on the top level.
+        sync();
+    }
+    mAddingObserverCounter--;
+}
+```
+</code></pre><h4 id="3-&#x751F;&#x547D;&#x5468;&#x671F;&#x662F;&#x5982;&#x4F55;&#x901A;&#x77E5;&#x5230;-lifecycleobserver&#xFF1F;">3. &#x751F;&#x547D;&#x5468;&#x671F;&#x662F;&#x5982;&#x4F55;&#x901A;&#x77E5;&#x5230; LifecycleObserver&#xFF1F;</h4>
+<pre><code>```java
+// Fragment.java
+
+LifecycleRegistry mLifecycleRegistry = new LifecycleRegistry(this);
+
+void performCreate(Bundle savedInstanceState) {
+    if (mChildFragmentManager != null) {
+        mChildFragmentManager.noteStateNotSaved();
+    }
+    mState = CREATED;
+    mCalled = false;
+    onCreate(savedInstanceState);
+    mIsCreated = true;
+    if (!mCalled) {
+        throw new SuperNotCalledException(&quot;Fragment &quot; + this
+                + &quot; did not call through to super.onCreate()&quot;);
+    }
+    // 1 &#x5206;&#x53D1; ON_CREATE &#x4E8B;&#x4EF6;
+    mLifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_CREATE);
+}
+```
+
+```java
+// LifecycleRegistry.java
+
+public void handleLifecycleEvent(@NonNull Lifecycle.Event event) {
+    State next = getStateAfter(event); // &#x5F53;&#x524D;&#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x540E;&#x7684;&#x72B6;&#x6001;
+    moveToState(next);
+}
+
+// 2 &#x8BBE;&#x7F6E;&#x72B6;&#x6001;
+private void moveToState(State next) {
+    if (mState == next) {
+        return;
+    }
+    mState = next;
+    if (mHandlingEvent || mAddingObserverCounter != 0) {
+        mNewEventOccurred = true;
+        // we will figure out what to do on upper level.
+        return;
+    }
+    mHandlingEvent = true;
+    sync();
+    mHandlingEvent = false;
+}
+// 3 &#x540C;&#x6B65;&#x72B6;&#x6001;
+private void sync() {
+    LifecycleOwner lifecycleOwner = mLifecycleOwner.get();
+    if (lifecycleOwner == null) {
+        Log.w(LOG_TAG, &quot;LifecycleOwner is garbage collected, you shouldn&apos;t try dispatch &quot;
+                + &quot;new events from it.&quot;);
+        return;
+    }
+    while (!isSynced()) {
+        mNewEventOccurred = false;
+        // &#x5982;&#x679C; &#x5F53;&#x524D;&#x72B6;&#x6001; &#x6BD4;&#x4E4B;&#x524D;&#x7684;&#x72B6;&#x6001;&#x4F4E;&#xFF0C;&#x90A3;&#x4E48;&#x72B6;&#x6001;&#x5C31;&#x5411;&#x540E;&#x4F20;&#x9012;
+        // &#x4E5F;&#x5C31;&#x662F; DESTROYED &lt;- INITIALIZED &lt;- CREATED &lt;- STARTED &lt;- RESUMED
+        // &#x8FD9;&#x6837;&#x7684;&#x72B6;&#x6001;&#x8D70;&#x5411;&#xFF0C;&#x4E0D;&#x5C31;&#x662F;&#x7A0B;&#x5E8F;&#x540E;&#x53F0;&#x4E86;&#x6216;&#x8005;&#x9000;&#x51FA;&#x7684;&#x65F6;&#x5019;&#x561B;
+        if (mState.compareTo(mObserverMap.eldest().getValue().mState) &lt; 0) {
+            backwardPass(lifecycleOwner);
+        }
+        Entry&lt;LifecycleObserver, ObserverWithState&gt; newest = mObserverMap.newest();
+        if (!mNewEventOccurred &amp;&amp; newest != null
+                &amp;&amp; mState.compareTo(newest.getValue().mState) &gt; 0) {
+            forwardPass(lifecycleOwner);
+        }
+    }
+    mNewEventOccurred = false;
+}
+// 4 &#x72B6;&#x6001;&#x5411;&#x540E;&#x4F20;&#x9012;
+private void backwardPass(LifecycleOwner lifecycleOwner) {
+    Iterator&lt;Entry&lt;LifecycleObserver, ObserverWithState&gt;&gt; descendingIterator =
+            mObserverMap.descendingIterator();
+    while (descendingIterator.hasNext() &amp;&amp; !mNewEventOccurred) {
+        Entry&lt;LifecycleObserver, ObserverWithState&gt; entry = descendingIterator.next();
+        ObserverWithState observer = entry.getValue();
+        while ((observer.mState.compareTo(mState) &gt; 0 &amp;&amp; !mNewEventOccurred
+                &amp;&amp; mObserverMap.contains(entry.getKey()))) {
+            // &#x5230;&#x8FBE;&#x8FD9;&#x4E2A;&#x72B6;&#x6001;&#xFF0C;&#x5E94;&#x8BE5;&#x662F;&#x7531;&#x4EC0;&#x4E48;&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#xFF1F;
+            Event event = downEvent(observer.mState);
+            pushParentState(getStateAfter(event));
+            // 5 &#x90A3;&#x4E48;&#x5C31;&#x5206;&#x53D1;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;
+            observer.dispatchEvent(lifecycleOwner, event);
+            popParentState();
+        }
+    }
+}
+
+// ... forwardPass &#x5C31;&#x4E0D;&#x5206;&#x6790;&#x4E86;&#xFF0C;&#x540C;&#x7406; ...
+```
+</code></pre><h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>Lifecycle-Aware &#x7684;&#x5B9E;&#x73B0;&#x539F;&#x7406;&#x975E;&#x5E38;&#x7684;&#x7B80;&#x5355;&#x3002;&#x4E0D;&#x8FC7;&#x901A;&#x5E38;&#x6211;&#x4EEC;&#x4E0D;&#x4F1A;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x751F;&#x547D;&#x5468;&#x671F;&#x611F;&#x77E5;&#x7EC4;&#x4EF6;&#xFF0C;&#x5B83;&#x5B58;&#x5728;&#x7684;&#x610F;&#x4E49;&#x5728;&#x4E8E;&#x4E3A; <code>LiveData</code> &#x548C; <code>ViewModel</code> &#x7684;&#x5B9E;&#x73B0;&#x63D0;&#x4F9B;&#x4E86;&#x57FA;&#x7840;&#x652F;&#x6301;&#x3002;</p>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 1. 架构组件 (Architecture Components)">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="2-LiveData.html" class="navigation navigation-next " aria-label="Next page: 1.2 LiveData">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.1 Lifecycle-Aware","level":"1.4.1","depth":2,"next":{"title":"1.2 LiveData","level":"1.4.2","depth":2,"path":"chapter-1/2-LiveData.md","ref":"chapter-1/2-LiveData.md","articles":[]},"previous":{"title":"1. 架构组件 (Architecture Components)","level":"1.4","depth":1,"path":"chapter-1/README.md","ref":"chapter-1/README.md","articles":[{"title":"1.1 Lifecycle-Aware","level":"1.4.1","depth":2,"path":"chapter-1/1-Lifecycle-Aware.md","ref":"chapter-1/1-Lifecycle-Aware.md","articles":[]},{"title":"1.2 LiveData","level":"1.4.2","depth":2,"path":"chapter-1/2-LiveData.md","ref":"chapter-1/2-LiveData.md","articles":[]},{"title":"1.3 ViewModel","level":"1.4.3","depth":2,"path":"chapter-1/3-ViewModel.md","ref":"chapter-1/3-ViewModel.md","articles":[]},{"title":"1.4 Room","level":"1.4.4","depth":2,"path":"chapter-1/4-Room.md","ref":"chapter-1/4-Room.md","articles":[]},{"title":"1.5 Paging","level":"1.4.5","depth":2,"path":"chapter-1/5-Paging.md","ref":"chapter-1/5-Paging.md","articles":[]},{"title":"1.6 Navigation","level":"1.4.6","depth":2,"path":"chapter-1/6-Navigation.md","ref":"chapter-1/6-Navigation.md","articles":[]},{"title":"1.7 WorkManager","level":"1.4.7","depth":2,"path":"chapter-1/7-WorkManager.md","ref":"chapter-1/7-WorkManager.md","articles":[]},{"title":"1.8 Data Binding","level":"1.4.8","depth":2,"path":"chapter-1/8-Data-Binding.md","ref":"chapter-1/8-Data-Binding.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-search","sharing","fontsettings","highlight","todo","puml","fancybox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"todo":{},"puml":{},"fancybox":{"helpers":{"buttons":{}}},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"GavinLiu","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"现代 Android 开发之旅","language":"zh-hans","gitbook":">=3.2.3","description":""},"file":{"path":"chapter-1/1-Lifecycle-Aware.md","mtime":"2018-06-12T14:03:45.057Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-18T07:19:39.182Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fancybox/jquery.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fancybox/jquery.mousewheel.pack.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fancybox/jquery.fancybox.pack.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fancybox/jquery.fancybox-buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fancybox/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,688 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.2 LiveData · 现代 Android 开发之旅</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="GavinLiu">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fancybox/jquery.fancybox.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fancybox/jquery.fancybox-buttons.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="3-ViewModel.html" />
+    
+    
+    <link rel="prev" href="1-Lifecycle-Aware.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">现代 Android App 开发之旅</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    封面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../chapter-0/What-is-modern-android-app-development.html">
+            
+                <a href="../chapter-0/What-is-modern-android-app-development.html">
+            
+                    
+                    0. 什么是现代 Android App 开发？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../chapter-0/How-to-write-a-hight-quality-android-app.html">
+            
+                <a href="../chapter-0/How-to-write-a-hight-quality-android-app.html">
+            
+                    
+                    0. 如何写个高质量的 Android App？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    1. 架构组件 (Architecture Components)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="1-Lifecycle-Aware.html">
+            
+                <a href="1-Lifecycle-Aware.html">
+            
+                    
+                    1.1 Lifecycle-Aware
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.2" data-path="2-LiveData.html">
+            
+                <a href="2-LiveData.html">
+            
+                    
+                    1.2 LiveData
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="3-ViewModel.html">
+            
+                <a href="3-ViewModel.html">
+            
+                    
+                    1.3 ViewModel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="4-Room.html">
+            
+                <a href="4-Room.html">
+            
+                    
+                    1.4 Room
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="5-Paging.html">
+            
+                <a href="5-Paging.html">
+            
+                    
+                    1.5 Paging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="6-Navigation.html">
+            
+                <a href="6-Navigation.html">
+            
+                    
+                    1.6 Navigation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="7-WorkManager.html">
+            
+                <a href="7-WorkManager.html">
+            
+                    
+                    1.7 WorkManager
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="8-Data-Binding.html">
+            
+                <a href="8-Data-Binding.html">
+            
+                    
+                    1.8 Data Binding
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../chapter-2/">
+            
+                <a href="../chapter-2/">
+            
+                    
+                    2. 基于架构组件开发 电影榜单 App
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    3. RxJava
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    4. Retrofit
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.2 LiveData</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="livedata">LiveData</h1>
+<h2 id="&#x4EC0;&#x4E48;&#x662F;-livedata">&#x4EC0;&#x4E48;&#x662F; LiveData</h2>
+<p>LiveData &#x662F;&#x4E00;&#x4E2A;&#x5177;&#x6709;&#x751F;&#x547D;&#x5468;&#x671F;&#x611F;&#x77E5;&#x80FD;&#x529B;&#x7684;&#x53EF;&#x88AB;&#x89C2;&#x5BDF;&#x7684;&#x6570;&#x636E;&#x6301;&#x6709;&#x7C7B;&#xFF0C;&#x4E14;&#x53EA;&#x6709;&#x5728; Lifecycle &#x6FC0;&#x6D3B;&#x72B6;&#x6001;&#x4E0B;&#x624D;&#x4F1A;&#x901A;&#x77E5;&#x89C2;&#x5BDF;&#x8005;&#x3002;</p>
+<h2 id="&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981;-livedata">&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981; LiveData</h2>
+<p>&#x5728; <a href="../chapter-0/How-to-write-a-hight-quality-android-app.html">&#x5982;&#x4F55;&#x5199;&#x4E2A;&#x9AD8;&#x8D28;&#x91CF;&#x7684; Android App&#xFF1F;</a> &#x4E2D;&#xFF0C;&#x63D0;&#x5230; <strong>&#x907F;&#x514D;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x6570;&#x636E;&#x66F4;&#x65B0;</strong></p>
+<ol>
+<li><p>&#x53EA;&#x6709;&#x5728; Lifecycle &#x6FC0;&#x6D3B;&#x72B6;&#x6001;&#x4E0B;&#x624D;&#x4F1A;&#x901A;&#x77E5;&#x89C2;&#x5BDF;&#x8005;&#xFF0C;&#x4E14;&#x5982;&#x679C;&#x975E;&#x6FC0;&#x6D3B;&#x72B6;&#x6001;&#x4EA7;&#x751F;&#x6570;&#x636E;&#x53D8;&#x66F4;&#xFF0C;&#x5728;&#x8FD4;&#x56DE;&#x6FC0;&#x6D3B;&#x72B6;&#x6001;&#x65F6;&#x4F1A;&#x81EA;&#x52A8;&#x901A;&#x77E5;&#x89C2;&#x5BDF;&#x8005;&#x3002;</p>
+<blockquote>
+<p>&#x6FC0;&#x6D3B;&#x72B6;&#x6001;&#x662F;&#x6307; <code>STARTED</code> <code>RESUMED</code></p>
+</blockquote>
+</li>
+<li><p>&#x56E0;&#x4E3A;&#x662F;&#x751F;&#x547D;&#x5468;&#x671F;&#x611F;&#x77E5;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5728; Activity &#x9500;&#x6BC1;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6570;&#x636E;&#x4E5F;&#x4F1A;&#x81EA;&#x52A8;&#x6E05;&#x9664;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x4E0D;&#x4F1A;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x6765;&#xFF0C;&#x4E5F;&#x4E0D;&#x9700;&#x8981;&#x5728; onDestory &#x7684;&#x65F6;&#x5019;&#x5404;&#x79CD; <code>xx = null</code> &#x4E86;&#x3002;</p>
+</li>
+</ol>
+<p>&#x8FD9;&#x4E00;&#x5207;&#x90FD;&#x662F; LiveData &#x5DF2;&#x7ECF;&#x63D0;&#x4F9B;&#x597D;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x4F60;&#x7684;&#x4F7F;&#x7528;&#x975E;&#x5E38;&#x7B80;&#x5355;&#x3002;</p>
+<h2 id="&#x600E;&#x4E48;&#x4F7F;&#x7528;-livedata">&#x600E;&#x4E48;&#x4F7F;&#x7528; LiveData</h2>
+<ol>
+<li><p>&#x76F4;&#x63A5;&#x4F7F;&#x7528; LiveData</p>
+</li>
+<li><p>&#x901A;&#x8FC7;&#x7EE7;&#x627F; &#x81EA;&#x5B9A;&#x4E49; LiveData</p>
+</li>
+<li><p>LiveData &#x4E4B;&#x95F4;&#x7684;&#x8F6C;&#x6362;</p>
+</li>
+</ol>
+<h3 id="&#x5BFC;&#x5165;&#x5E93;">&#x5BFC;&#x5165;&#x5E93;</h3>
+<p>&#x56E0;&#x4E3A; LiveData &#x4E5F;&#x5C5E;&#x4E8E;&#x751F;&#x547D;&#x5468;&#x671F;&#x7EC4;&#x4EF6;&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x6240;&#x4EE5;&#x540C;&#x6837;&#x7684;&#x5F15;&#x5165; <code>Support Library</code> 26.1 &#x4EE5;&#x4E0A;&#x7684;&#x7248;&#x672C;&#x5C31;&#x884C;&#x3002;</p>
+<h3 id="livedata">LiveData</h3>
+<p>LiveData &#x662F;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x7C7B;&#xFF0C;&#x5176;&#x5B9E;&#x901A;&#x5E38;&#x662F;&#x4F7F;&#x7528;&#x5B83;&#x5176;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x5B50;&#x7C7B;&#xFF0C;MutableLiveData</p>
+<pre><code class="lang-kotlin"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainActivity</span> : <span class="hljs-type">AppCompatActivity</span></span>() {
+    lateinit <span class="hljs-keyword">var</span> userData: MutableLiveData&lt;User&gt;
+    <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(savedInstanceState: <span class="hljs-type">Bundle</span>?)</span></span> {
+        <span class="hljs-keyword">super</span>.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        <span class="hljs-comment">// 1. &#x521D;&#x59CB;&#x5316;</span>
+        userData = MutableLiveData()
+
+        <span class="hljs-comment">// 2. &#x89C2;&#x5BDF;&#xFF0C;&#x901A;&#x8FC7;&#x751F;&#x547D;&#x5468;&#x671F;&#x89C2;&#x5BDF;&#xFF0C;&#x53EA;&#x6709;&#x5728;&#x6D3B;&#x52A8;&#x72B6;&#x6001;&#x4E0B;&#x624D;&#x4F1A;&#x63A5;&#x6536;&#x5230;&#x901A;&#x77E5;</span>
+        userData.observe(<span class="hljs-keyword">this</span>, Observer { user -&gt;
+            <span class="hljs-comment">// &#x4FEE;&#x6539; UI</span>
+            username?.text = user?.name
+        })
+        <span class="hljs-comment">// 2. &#x89C2;&#x5BDF;&#xFF0C;&#x975E;&#x751F;&#x547D;&#x5468;&#x671F;&#x89C2;&#x5BDF;&#xFF0C;&#x53EA;&#x8981;&#x6570;&#x636E;&#x53D8;&#x5316;&#x5C31;&#x4F1A;&#x6536;&#x5230;&#x901A;&#x77E5;</span>
+        <span class="hljs-comment">// userData.observeForever(Observer { user -&gt;</span>
+        <span class="hljs-comment">//     // &#x4FEE;&#x6539; UI</span>
+        <span class="hljs-comment">//     username?.text = user?.name</span>
+        <span class="hljs-comment">// })</span>
+
+        <span class="hljs-comment">// 3. &#x4FEE;&#x6539;&#x503C;</span>
+        userData.value = User(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;Liu&quot;</span>) <span class="hljs-comment">// &#x4E3B;&#x7EBF;&#x7A0B;&#x4FEE;&#x6539;&#x7528; setValue</span>
+        Thread(Runnable {
+            Thread.sleep(<span class="hljs-number">2000</span>)
+            userData.postValue(User(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;Gavin&quot;</span>)) <span class="hljs-comment">// &#x5F02;&#x6B65;&#x4FEE;&#x6539;&#x7528; postValue</span>
+        }).start()
+    }
+}
+</code></pre>
+<p>LiveData &#x5F88;&#x8D34;&#x5FC3;&#x7684;&#x63D0;&#x4F9B;&#x4E86;&#x4E24;&#x79CD;&#x89C2;&#x5BDF;:</p>
+<ol>
+<li><p>&#x751F;&#x547D;&#x5468;&#x671F;&#x611F;&#x77E5;&#x7684;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">observe</span><span class="hljs-params">(@NonNull LifecycleOwner owner, @NonNull Observer&lt;T&gt; observer)</span>
+</span></code></pre>
+<blockquote>
+<p>&#x53EA;&#x6709;&#x5728;&#x6D3B;&#x52A8;&#x72B6;&#x6001;&#x4E0B;&#x624D;&#x4F1A;&#x63A5;&#x6536;&#x5230;&#x901A;&#x77E5;</p>
+</blockquote>
+</li>
+<li><p>&#x975E;&#x751F;&#x547D;&#x5468;&#x671F;&#x611F;&#x77E5;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">observeForever</span><span class="hljs-params">(@NonNull Observer&lt;T&gt; observer)</span>
+</span></code></pre>
+<blockquote>
+<p>&#x53EA;&#x8981;&#x6570;&#x636E;&#x53D8;&#x5316;&#x5C31;&#x4F1A;&#x6536;&#x5230;&#x901A;&#x77E5;</p>
+</blockquote>
+</li>
+</ol>
+<p>LiveData &#x5176;&#x5B9E;&#x4E5F;&#x80FD;&#x5F88;&#x597D;&#x7684;&#x7528;&#x5728;&#x5F02;&#x6B65;&#x7EBF;&#x7A0B;&#x4E2D;&#xFF0C;&#x4E0D;&#x4EC5;&#x4EC5;&#x662F; <code>postValue</code> &#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x5728;&#x5F02;&#x6B65;&#x7EBF;&#x7A0B;&#x4E2D;&#x66F4;&#x65B0;&#x6570;&#x636E;&#xFF0C;&#x8FD8;&#x56E0;&#x4E3A;&#x662F;&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;&#xFF0C;&#x80FD;&#x591F;&#x5F88;&#x597D;&#x7684;&#x548C; <a href="http://gavinliu.cn/2015/12/14/Java-%E4%BD%BF%E7%94%A8Future%E8%BF%9B%E8%A1%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/" target="_blank">Future &#x591A;&#x7EBF;&#x7A0B;&#x6A21;&#x578B;</a> &#x76F8;&#x7ED3;&#x5408;&#xFF0C;&#x5047;&#x8BBE;&#x9700;&#x8981;&#x5F02;&#x6B65;&#x83B7;&#x53D6;&#x4E00;&#x4E2A; Json &#x6570;&#x636E;&#xFF0C;&#x7F51;&#x7EDC;&#x5E93;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; LiveData&#xFF0C;&#x7B49;&#x7F51;&#x7EDC;&#x52A0;&#x8F7D;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x518D;&#x66F4;&#x65B0;&#x6570;&#x636E;&#x3002;</p>
+<h3 id="&#x81EA;&#x5B9A;&#x4E49;-livedata">&#x81EA;&#x5B9A;&#x4E49; LiveData</h3>
+<pre><code class="lang-kotlin"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomLiveData</span> : <span class="hljs-type">MutableLiveData</span>&lt;<span class="hljs-type">Int</span>&gt;</span>() {
+    <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onActive</span><span class="hljs-params">()</span></span> {
+        <span class="hljs-keyword">super</span>.onActive()
+        registerReceiver()
+    }
+
+    <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">onInactive</span><span class="hljs-params">()</span></span> {
+        <span class="hljs-keyword">super</span>.onInactive()
+        unregisterReceiver()
+    }
+
+    <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">registerReceiver</span><span class="hljs-params">()</span></span> {
+
+    }
+
+    <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">unregisterReceiver</span><span class="hljs-params">()</span></span> {
+
+    }
+}
+</code></pre>
+<ul>
+<li><code>onActive()</code> &#x662F;&#x5728; LiveData &#x6709;&#x89C2;&#x5BDF;&#x8005;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x89E6;&#x53D1;&#xFF0C;&#x8FD9;&#x91CC;&#x5E94;&#x8BE5;&#x505A;&#x4E00;&#x4E9B;&#x521D;&#x59CB;&#x5316;&#x64CD;&#x4F5C;&#xFF1B;</li>
+<li><code>onInactive()</code> &#x662F;&#x5728; LiveData &#x6CA1;&#x6709;&#x89C2;&#x5BDF;&#x8005;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x89E6;&#x53D1;&#xFF0C;&#x8FD9;&#x91CC;&#x5E94;&#x8BE5;&#x505A;&#x4E00;&#x4E2A;&#x4E9B;&#x6570;&#x636E;&#x6E05;&#x7A7A;&#x7684;&#x64CD;&#x4F5C;&#xFF1B;</li>
+</ul>
+<h3 id="&#x5408;&#x5E76;&#x591A;&#x4E2A;-livedata">&#x5408;&#x5E76;&#x591A;&#x4E2A; LiveData</h3>
+<p>&#x6709;&#x8FD9;&#x4E48;&#x4E2A;&#x9700;&#x6C42;&#xFF0C;&#x4E00;&#x4E2A;&#x8D44;&#x6E90;&#x53EF;&#x80FD;&#x662F;&#x6765;&#x6E90;&#x672C;&#x5730;&#x7F13;&#x5B58;&#x6216;&#x8005;&#x7F51;&#x7EDC;&#xFF0C;&#x5982;&#x4F55;&#x5BF9;&#x5916;&#x53EA;&#x66B4;&#x9732;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5C31;&#x80FD;&#x540C;&#x65F6;&#x6536;&#x5230;&#x672C;&#x5730;&#x7F13;&#x5B58;&#x6216;&#x8005;&#x7F51;&#x7EDC;&#x7684;&#x6570;&#x636E;&#xFF1F;</p>
+<p>&#x901A;&#x8FC7; <code>MediatorLiveData</code></p>
+<pre><code class="lang-kotlin"><span class="hljs-comment">// &#x4F2A;&#x4EE3;&#x7801;</span>
+<span class="hljs-keyword">val</span> networkUser = MutableLiveData&lt;User&gt;() <span class="hljs-comment">// &#x7F51;&#x7EDC;</span>
+<span class="hljs-keyword">val</span> localCacheUser = MutableLiveData&lt;User&gt;() <span class="hljs-comment">// &#x672C;&#x5730;&#x7F13;&#x5B58;</span>
+
+<span class="hljs-keyword">val</span> fullUserData = MediatorLiveData&lt;User&gt;()
+fullUserData.addSource(localCacheUser, { fullUserData.value = it })
+fullUserData.addSource(networkUser, { fullUserData.value = it })
+
+fullUserData.observe(<span class="hljs-keyword">this</span>, Observer {
+    username2?.text = it?.name
+})
+
+<span class="hljs-comment">// &#x5F02;&#x6B65;&#x83B7;&#x53D6;</span>
+Thread(Runnable {
+    localCacheUser.postValue(User(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;User Local&quot;</span>)) <span class="hljs-comment">// &#x672C;&#x5730;&#x7F13;&#x5B58;&#x5148;&#x62FF;&#x5230;</span>
+    Thread.sleep(<span class="hljs-number">2000</span>)
+    networkUser.postValue(User(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;User NetWork&quot;</span>)) <span class="hljs-comment">// &#x7F51;&#x7EDC;&#x6570;&#x636E;&#x62FF;&#x5230;</span>
+}).start()
+</code></pre>
+<h3 id="&#x8F6C;&#x6362;-livedata">&#x8F6C;&#x6362; LiveData</h3>
+<p>&#x6709;&#x65F6;&#x5019;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x628A;&#x4E00;&#x4E2A; LiveData &#x8F6C;&#x6362;&#x6210;&#x53E6;&#x5916;&#x4E00;&#x4E2A; LiveData&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x9700;&#x8981;&#x7528;&#x5230; LiveData &#x7684;&#x8F6C;&#x6362;&#x529F;&#x80FD;</p>
+<h4 id="transformationsmap">Transformations.map()</h4>
+<p>&#x9488;&#x5BF9;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x67D0;&#x4E2A;&#x6570;&#x636E;&#xFF0C;&#x7528;&#x8FD9;&#x4E2A;</p>
+<pre><code class="lang-kotlin"><span class="hljs-comment">// MainActivity.kt</span>
+
+teamNameData = Transformations.map(userData) { <span class="hljs-string">&quot;<span class="hljs-subst">${it.name}</span> - Team&quot;</span> }
+teamNameData.observe(<span class="hljs-keyword">this</span>, Observer {
+    team?.text = it
+})
+</code></pre>
+<h4 id="transformationsswitchmap">Transformations.switchMap()</h4>
+<p>&#x9488;&#x5BF9;&#x8FD4;&#x56DE;&#x53E6;&#x5916;&#x4E00;&#x4E2A; LiveData &#xFF0C;&#x7528;&#x8FD9;&#x4E2A;</p>
+<pre><code class="lang-kotlin"><span class="hljs-comment">// MainActivity.kt</span>
+
+teamNameData = Transformations.map(userData) { <span class="hljs-string">&quot;<span class="hljs-subst">${it.name}</span> - Team&quot;</span> }
+teamNameData.observe(<span class="hljs-keyword">this</span>, Observer {
+    MutableLiveData&lt;String&gt;()
+})
+</code></pre>
+<p>Transformations API&#xFF0C;&#x662F;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#xFF0C;&#x6E90;&#x6570;&#x636E;&#x53D8;&#x5316;&#x540E;&#x8DDF;&#x7740;&#x53D8;&#x5316;&#xFF0C;&#x6BD4;&#x5982;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x5982;&#x679C; <code>userData</code> &#x53D8;&#x4E86;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x89E6;&#x53D1; <code>teamNameData</code> &#x53D8;&#x5316;&#x3002;</p>
+<h2 id="livedata-&#x5B9E;&#x73B0;&#x539F;&#x7406;">LiveData &#x5B9E;&#x73B0;&#x539F;&#x7406;</h2>
+<h3 id="&#x7C7B;&#x56FE;">&#x7C7B;&#x56FE;</h3>
+<p>     <a href="http://www.plantuml.com/plantuml/svg/UDgDKzjkep0GVVTN-16KPhyWIjMzgbBQFYJAFa_C9B44Dh8DKPJjlw_17g0Eglg2cV7SpZaUnk1WdG7Xk2Z1MhwHBVu41_p6jd34PuS63YM-GBrwErWqBPhLRlt0oVXheAxHh7b57ijOgsN1BRezb0rcEzvsPnxSjRQfd-cGccta4SLLbFXsKMYuxhvZAz-NnqYJKyvlRT3RsNoGmKgtI7TV2hApK-GHb5PFmdcAifpiPmNaOGUjImJ5ps37SldK7RAdbqmgnq-UAszAhJBgL4XRWnDdgKw1heHnBfLq4fmsSHIXbPK5cbVjvF5w5pxYVMUfw6diZIsdL0tIiYL1gG8GjkochpPWQNwQ7Xs8yq1y734mjNNWyCSPr0cBZ0egl8II_Npq5gCGttMZ2YhcfqiKglfZKEX3_IJKwiO8V1XBV_lLeeU0tNVI-gcym3LHopSU0ruQr-q5hSlWngBNv9CreglLer-ZRJ-F__KiXtyxzeYN-tKFEMPvgngw3Yhjfoh5HIkR4n7Vg6Yzz-yDpH44VbYi6rj4-eYv7G-4351M_vRBEzo97OCI5XXBNrWVDgyl-uDUAIb6vOZ_pv9c6yofE06qy259tZXfg10aO7Sm5vEx_wzFts00" rel="grouped" title="" target="_blank" class="fancybox">
+       <img src="http://www.plantuml.com/plantuml/svg/UDgDKzjkep0GVVTN-16KPhyWIjMzgbBQFYJAFa_C9B44Dh8DKPJjlw_17g0Eglg2cV7SpZaUnk1WdG7Xk2Z1MhwHBVu41_p6jd34PuS63YM-GBrwErWqBPhLRlt0oVXheAxHh7b57ijOgsN1BRezb0rcEzvsPnxSjRQfd-cGccta4SLLbFXsKMYuxhvZAz-NnqYJKyvlRT3RsNoGmKgtI7TV2hApK-GHb5PFmdcAifpiPmNaOGUjImJ5ps37SldK7RAdbqmgnq-UAszAhJBgL4XRWnDdgKw1heHnBfLq4fmsSHIXbPK5cbVjvF5w5pxYVMUfw6diZIsdL0tIiYL1gG8GjkochpPWQNwQ7Xs8yq1y734mjNNWyCSPr0cBZ0egl8II_Npq5gCGttMZ2YhcfqiKglfZKEX3_IJKwiO8V1XBV_lLeeU0tNVI-gcym3LHopSU0ruQr-q5hSlWngBNv9CreglLer-ZRJ-F__KiXtyxzeYN-tKFEMPvgngw3Yhjfoh5HIkR4n7Vg6Yzz-yDpH44VbYi6rj4-eYv7G-4351M_vRBEzo97OCI5XXBNrWVDgyl-uDUAIb6vOZ_pv9c6yofE06qy259tZXfg10aO7Sm5vEx_wzFts00" alt="">
+     </a></p>
+<h3 id="&#x6E90;&#x7801;&#x89E3;&#x6790;">&#x6E90;&#x7801;&#x89E3;&#x6790;</h3>
+<h4 id="1-livedata-&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x5BF9;&#x751F;&#x547D;&#x5468;&#x671F;&#x611F;&#x77E5;&#x7684;&#xFF1F;">1. LiveData &#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x5BF9;&#x751F;&#x547D;&#x5468;&#x671F;&#x611F;&#x77E5;&#x7684;&#xFF1F;</h4>
+<p>&#x5728;&#x6DFB;&#x52A0;&#x89C2;&#x5BDF;&#x8005;&#x7684;&#x65F6;&#x5019;&#x9700;&#x8981;&#x4F20;&#x5165; <code>LifecycleOwner</code>&#xFF0C;&#x7136;&#x540E; <code>addObserver()</code>&#xFF0C;&#x6240;&#x4EE5;&#x5C31;&#x5B9E;&#x73B0;&#x4E86;&#x751F;&#x547D;&#x5468;&#x671F;&#x611F;&#x77E5;&#x3002;&#x540C;&#x65F6;&#x5728; <code>LifecycleOwner</code> &#x88AB;&#x9500;&#x6BC1;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x6E05;&#x9664;&#x6570;&#x636E;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">observe</span><span class="hljs-params">(@NonNull LifecycleOwner owner, @NonNull Observer&lt;T&gt; observer)</span> </span>{
+    <span class="hljs-keyword">if</span> (owner.getLifecycle().getCurrentState() == DESTROYED) {
+        <span class="hljs-comment">// ignore</span>
+        <span class="hljs-keyword">return</span>;
+    }
+    LifecycleBoundObserver wrapper = <span class="hljs-keyword">new</span> LifecycleBoundObserver(owner, observer);
+    ObserverWrapper existing = mObservers.putIfAbsent(observer, wrapper);
+    <span class="hljs-keyword">if</span> (existing != <span class="hljs-keyword">null</span> &amp;&amp; !existing.isAttachedTo(owner)) {
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(<span class="hljs-string">&quot;Cannot add the same observer&quot;</span>
+                + <span class="hljs-string">&quot; with different lifecycles&quot;</span>);
+    }
+    <span class="hljs-keyword">if</span> (existing != <span class="hljs-keyword">null</span>) {
+        <span class="hljs-keyword">return</span>;
+    }
+    <span class="hljs-comment">// &#x751F;&#x547D;&#x5468;&#x671F;&#x76D1;&#x542C;</span>
+    owner.getLifecycle().addObserver(wrapper);
+}
+
+<span class="hljs-comment">// DESTROYED &#x65F6;&#x6E05;&#x9664;&#x6570;&#x636E;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LifecycleBoundObserver</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ObserverWrapper</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">GenericLifecycleObserver</span> </span>{
+    ...
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onStateChanged</span><span class="hljs-params">(LifecycleOwner source, Lifecycle.Event event)</span> </span>{
+        <span class="hljs-keyword">if</span> (mOwner.getLifecycle().getCurrentState() == DESTROYED) {
+            removeObserver(mObserver);
+            <span class="hljs-keyword">return</span>;
+        }
+        activeStateChanged(shouldBeActive());
+    }
+    ...
+}
+</code></pre>
+<h4 id="2-livedata-&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x6570;&#x636E;&#x53D8;&#x5316;&#x901A;&#x77E5;&#x7684;&#xFF1F;">2. LiveData &#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x6570;&#x636E;&#x53D8;&#x5316;&#x901A;&#x77E5;&#x7684;&#xFF1F;</h4>
+<pre><code class="lang-java"><span class="hljs-comment">// 1 &#x4FEE;&#x6539;&#x6570;&#x636E;&#xFF0C; postValue &#x6700;&#x7EC8;&#x4E5F;&#x662F;&#x8C03;&#x7528; setValue</span>
+<span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setValue</span><span class="hljs-params">(T value)</span> </span>{
+    assertMainThread(<span class="hljs-string">&quot;setValue&quot;</span>);
+    mVersion++;
+    mData = value;
+    dispatchingValue(<span class="hljs-keyword">null</span>);
+}
+<span class="hljs-comment">// 2 &#x8FED;&#x4EE3;&#x901A;&#x77E5;</span>
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">dispatchingValue</span><span class="hljs-params">(@Nullable ObserverWrapper initiator)</span> </span>{
+    <span class="hljs-keyword">if</span> (mDispatchingValue) {
+        mDispatchInvalidated = <span class="hljs-keyword">true</span>;
+        <span class="hljs-keyword">return</span>;
+    }
+    mDispatchingValue = <span class="hljs-keyword">true</span>;
+    <span class="hljs-keyword">do</span> {
+        mDispatchInvalidated = <span class="hljs-keyword">false</span>;
+        <span class="hljs-keyword">if</span> (initiator != <span class="hljs-keyword">null</span>) {
+            considerNotify(initiator);
+            initiator = <span class="hljs-keyword">null</span>;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">for</span> (Iterator&lt;Map.Entry&lt;Observer&lt;T&gt;, ObserverWrapper&gt;&gt; iterator =
+                    mObservers.iteratorWithAdditions(); iterator.hasNext(); ) {
+                considerNotify(iterator.next().getValue());
+                <span class="hljs-keyword">if</span> (mDispatchInvalidated) {
+                    <span class="hljs-keyword">break</span>;
+                }
+            }
+        }
+    } <span class="hljs-keyword">while</span> (mDispatchInvalidated);
+    mDispatchingValue = <span class="hljs-keyword">false</span>;
+}
+<span class="hljs-comment">// 3 &#x901A;&#x77E5;</span>
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">considerNotify</span><span class="hljs-params">(ObserverWrapper observer)</span> </span>{
+    <span class="hljs-keyword">if</span> (!observer.mActive) {
+        <span class="hljs-keyword">return</span>;
+    }
+    <span class="hljs-keyword">if</span> (!observer.shouldBeActive()) {
+        observer.activeStateChanged(<span class="hljs-keyword">false</span>);
+        <span class="hljs-keyword">return</span>;
+    }
+    <span class="hljs-keyword">if</span> (observer.mLastVersion &gt;= mVersion) {
+        <span class="hljs-keyword">return</span>;
+    }
+    observer.mLastVersion = mVersion;
+    observer.mObserver.onChanged((T) mData);
+}
+</code></pre>
+<h4 id="3-transformations-api-&#x662F;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x7684;&#xFF1F;">3. Transformations API &#x662F;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x7684;&#xFF1F;</h4>
+<p>&#x901A;&#x8FC7; MediatorLiveData &#x5B9E;&#x73B0;</p>
+<h5 id="map">map</h5>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;X, Y&gt; <span class="hljs-function">LiveData&lt;Y&gt; <span class="hljs-title">map</span><span class="hljs-params">(@NonNull LiveData&lt;X&gt; source,
+        @NonNull <span class="hljs-keyword">final</span> Function&lt;X, Y&gt; func)</span> </span>{
+    <span class="hljs-keyword">final</span> MediatorLiveData&lt;Y&gt; result = <span class="hljs-keyword">new</span> MediatorLiveData&lt;&gt;();
+    result.addSource(source, <span class="hljs-keyword">new</span> Observer&lt;X&gt;() {
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onChanged</span><span class="hljs-params">(@Nullable X x)</span> </span>{
+            result.setValue(func.apply(x));
+        }
+    });
+    <span class="hljs-keyword">return</span> result;
+}
+</code></pre>
+<h5 id="switchmap">switchMap</h5>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;X, Y&gt; <span class="hljs-function">LiveData&lt;Y&gt; <span class="hljs-title">switchMap</span><span class="hljs-params">(@NonNull LiveData&lt;X&gt; trigger, @NonNull <span class="hljs-keyword">final</span> Function&lt;X, LiveData&lt;Y&gt;&gt; func)</span> </span>{
+    <span class="hljs-keyword">final</span> MediatorLiveData&lt;Y&gt; result = <span class="hljs-keyword">new</span> MediatorLiveData&lt;&gt;();
+    result.addSource(trigger, <span class="hljs-keyword">new</span> Observer&lt;X&gt;() {
+        LiveData&lt;Y&gt; mSource;
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onChanged</span><span class="hljs-params">(@Nullable X x)</span> </span>{
+            LiveData&lt;Y&gt; newLiveData = func.apply(x);
+            <span class="hljs-keyword">if</span> (mSource == newLiveData) {
+                <span class="hljs-keyword">return</span>;
+            }
+            <span class="hljs-keyword">if</span> (mSource != <span class="hljs-keyword">null</span>) {
+                result.removeSource(mSource);
+            }
+            mSource = newLiveData;
+            <span class="hljs-keyword">if</span> (mSource != <span class="hljs-keyword">null</span>) {
+                result.addSource(mSource, <span class="hljs-keyword">new</span> Observer&lt;Y&gt;() {
+                    <span class="hljs-meta">@Override</span>
+                    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onChanged</span><span class="hljs-params">(@Nullable Y y)</span> </span>{
+                        result.setValue(y);
+                    }
+                });
+            }
+        }
+    });
+    <span class="hljs-keyword">return</span> result;
+}
+</code></pre>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>LiveData &#x662F;&#x4E0D;&#x662F;&#x4E5F;&#x5F88;&#x7B80;&#x5355;&#xFF1F;</p>
+<p>&#x9664;&#x4E86;&#x5BF9;&#x57FA;&#x672C;&#x7684; LiveData &#x64CD;&#x4F5C;&#x9700;&#x8981;&#x4E86;&#x89E3;&#x4E4B;&#x5916;&#xFF0C;&#x4ECE; Transformations API &#x7684;&#x5B9E;&#x73B0;&#x5C31;&#x662F;&#x57FA;&#x4E8E; MediatorLiveData&#xFF0C;&#x5C31;&#x80FD;&#x77E5;&#x9053;&#x5176;&#x5F3A;&#x5927;&#x4E4B;&#x5904;&#xFF0C;&#x539F;&#x7406;&#x5374;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x6240;&#x4EE5;&#x4F60;&#x5E94;&#x8BE5;&#x5B66;&#x4F1A; <code>MediatorLiveData</code> &#x7684;&#x7528;&#x6CD5;&#x3002;</p>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="1-Lifecycle-Aware.html" class="navigation navigation-prev " aria-label="Previous page: 1.1 Lifecycle-Aware">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="3-ViewModel.html" class="navigation navigation-next " aria-label="Next page: 1.3 ViewModel">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.2 LiveData","level":"1.4.2","depth":2,"next":{"title":"1.3 ViewModel","level":"1.4.3","depth":2,"path":"chapter-1/3-ViewModel.md","ref":"chapter-1/3-ViewModel.md","articles":[]},"previous":{"title":"1.1 Lifecycle-Aware","level":"1.4.1","depth":2,"path":"chapter-1/1-Lifecycle-Aware.md","ref":"chapter-1/1-Lifecycle-Aware.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","sharing","fontsettings","highlight","todo","puml","fancybox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"todo":{},"puml":{},"fancybox":{"helpers":{"buttons":{}}},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"GavinLiu","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"现代 Android 开发之旅","language":"zh-hans","gitbook":">=3.2.3","description":""},"file":{"path":"chapter-1/2-LiveData.md","mtime":"2018-06-14T11:55:31.085Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-18T07:19:39.182Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fancybox/jquery.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fancybox/jquery.mousewheel.pack.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fancybox/jquery.fancybox.pack.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fancybox/jquery.fancybox-buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fancybox/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+
